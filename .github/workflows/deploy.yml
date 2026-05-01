@@ -37,7 +37,7 @@ jobs:
         run: npm run build -- --base-href /aulamiranda/
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository
           path: './dist/aulamiranda/browser'
