@@ -205,14 +205,8 @@
             <p class="answer">El contenedor ejecuta Nginx actuando como web server. Posee una configuración <code>nginx.conf</code> que indica explícitamente servir los artifacts estáticos en <code>/usr/share/nginx/html</code>, e incorpora una regla de fallback routing (<code>try_files $uri $uri/ /index.html;</code>) que intercepta todas las rutas no encontradas y las redirige al <code>index.html</code>, un approach indispensable para el client-side routing de nuestra Single Page Application (SPA).</p>
         </div>
         
-        <div class="screenshot-placeholder">
-            <span>[ Screenshot 1: Output de `docker compose ps` indicando el health del contenedor ]</span>
-            <code>src="./proyecto_final_screenshots/4a_docker_ps.png"</code>
-        </div>
-        <div class="screenshot-placeholder">
-            <span>[ Screenshot 2: Vista de localhost:8080 renderizando la SPA ]</span>
-            <code>src="./proyecto_final_screenshots/4b_localhost.png"</code>
-        </div>
+        <img src="./proyecto_final_screenshots/4a_docker_ps.png" class="real-screenshot" alt="Docker Compose PS Output">
+        <img src="./proyecto_final_screenshots/4b_localhost.png" class="real-screenshot" alt="Localhost SPA">
     </section>
 
     <section>
