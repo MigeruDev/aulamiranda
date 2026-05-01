@@ -1,0 +1,28 @@
+---
+description: Enforce repository workflow conventions for PrepDocente EC
+alwaysApply: false
+---
+
+# Branches
+
+- Treat `develop` as the default integration branch and `main` as production-only.
+- Before creating an agent-managed branch, run `git fetch --prune origin`, switch to `develop`, and fast-forward from `origin/develop` unless told otherwise.
+- Never commit directly on `develop` or `main`; create a work branch first.
+- Prune local branches whose upstream no longer exists after confirming they have no unique unmerged work.
+- Use branch names: `feat/<scope>`, `fix/<scope>`, `bug/<scope>`, `chore/<scope>`, `refactor/<scope>`, `docs/<scope>`, `test/<scope>`, or `hotfix/<scope>`.
+- Never delete or force-push `develop` or `main`.
+
+# Commits
+
+- Use Conventional Commits with gitmojis, e.g. `feat(simulator): ✨ add dimension 1 timer`.
+- Keep subjects imperative and under 72 characters.
+- STRICTLY group commits by one specific logical task: tests, docs, CI, refactor, simulator, dashboard, etc.
+- MUST NOT bundle unrelated workstreams in one commit (e.g., do not mix UI changes with CI changes).
+- A gitmoji MUST appear right after the colon in the commit subject to easily identify the logical task.
+
+# Pull Requests
+
+- Never push directly to `develop` or `main`; push feature branches and open a PR.
+- Before creating a PR, ensure the branch includes the latest `origin/develop`.
+- Base PRs on `develop` unless explicitly doing a release or hotfix to `main`.
+- Follow `.cursor/rules/pr-format.mdc` for PR title, body, and assignment.

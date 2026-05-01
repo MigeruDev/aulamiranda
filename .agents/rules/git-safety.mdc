@@ -1,0 +1,9 @@
+---
+description: Non-negotiable git safety constraints for agent operations
+alwaysApply: true
+---
+
+- Never commit on `develop`, `main`, or `master`.
+- Never push `develop`, `main`, or `master` directly.
+- Stage named files or hunks only; do not use `git add .`, `git add -A`, or `git add --all`.
+- Split commits by logical scope; do not bundle unrelated workstreams.

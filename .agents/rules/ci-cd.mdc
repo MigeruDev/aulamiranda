@@ -1,0 +1,21 @@
+---
+description: CI/CD workflow and release constraints for PrepDocente EC
+globs: [".github/workflows/*.yml", "docker/docker-compose.prod.yml", "Dockerfile", ".dockerignore"]
+alwaysApply: false
+---
+# Source Of Truth
+
+- Treat `.github/workflows/` as the source of truth for pipeline behavior.
+- Preserve workflow names `ci`, `deploy-staging`, and `release` unless the user explicitly asks for a workflow migration.
+- Preserve protected job names `pr-title`, `lint`, `test`, `docker-build`, `commit-messages`, `build-and-push`, `deploy`, and `release-image`.
+
+# Required Behavior
+
+- Keep workflow behavior compatible with required checks on `develop`, especially `pr-title`, `lint`, `test`, and `commit-messages`.
+- Staging deployments happen only from pushes to `develop` through `deploy-staging`.
+- Production image releases happen from tags matching `^[a-z0-9-]+-[a-z0-9-]+\.v[0-9]+\.[0-9]+\.[0-9]+$`.
+- Keep GitHub Actions pinned to full-length SHAs.
+
+# Validation
+
+- For workflow or deployment changes, describe validation in terms of expected GitHub Actions checks, Docker build behavior, and affected environments.

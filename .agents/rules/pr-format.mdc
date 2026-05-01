@@ -1,0 +1,21 @@
+---
+description: Pull request title and body format
+alwaysApply: false
+---
+
+# Title
+
+- PR titles must match: `^(feat|fix|bug|chore|refactor|docs|test|hotfix)(\([a-z0-9_-]+\))?: .+$`
+- The first character must be the commit type; do not prefix titles with gitmojis or other characters.
+- A gitmoji MUST appear inside the subject immediately after the colon (e.g., `feat(ui): ✨ add new dashboard component`).
+
+# Body
+
+- PR bodies must include: **Summary**, **Changes**, **Validation**, **Deployment impact**, and **Notes**.
+- Fill `.github/pull_request_template.md` with concrete content; do not submit the raw template text.
+
+# Submission
+
+- Use `gh pr create --base develop --assignee @me --title "<type(scope): <gitmoji> subject>"`.
+- Keep each PR strictly focused on one specific logical task or coherent change set.
+- STRICTLY avoid mixing behavior changes with large formatting-only diffs or unrelated features.
