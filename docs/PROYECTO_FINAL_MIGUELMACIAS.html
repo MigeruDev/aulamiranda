@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MirandaLab - Arquitectura DevSecOps</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #0f172a; /* Dark blue tone */
+            --text-muted: #475569;
+            --primary: #172A6A; /* MirandaLab Primary */
+            --secondary: #00A7B5;
+            --border-color: #e2e8f0;
+            --surface: #f8fafc;
+        }
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 1000px;
+            padding: 60px 20px;
+            font-size: 16px;
+        }
+        header {
+            padding-bottom: 24px;
+            margin-bottom: 48px;
+            border-bottom: 2px solid var(--primary);
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            color: var(--primary);
+            letter-spacing: -0.025em;
+        }
+        .impact-statement {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin: 0 0 24px 0;
+            line-height: 1.5;
+            max-width: 850px;
+        }
+        .meta-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px 24px;
+            font-size: 14px;
+            color: var(--text-muted);
+            background: var(--surface);
+            padding: 16px;
+            border-radius: 6px;
+        }
+        .meta-info strong {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+        .meta-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .meta-info a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 56px;
+            padding: 0;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            color: var(--primary);
+            letter-spacing: -0.015em;
+        }
+        .question-block {
+            background-color: var(--surface);
+            padding: 24px 32px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 24px;
+            border-radius: 0 6px 6px 0;
+        }
+        .question {
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 0 8px 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        .answer {
+            margin: 0 0 24px 0;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+        .answer:last-child {
+            margin-bottom: 0;
+        }
+        .screenshot-placeholder {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            background-color: var(--surface);
+            border: 1px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 24px;
+            text-align: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .screenshot-placeholder code {
+            background-color: #e2e8f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--primary);
+        }
+        .real-screenshot {
+            max-width: 100%;
+            height: auto;
+            margin-top: 24px;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MirandaLab: Arquitectura e Infraestructura DevSecOps</h1>
+        <p class="impact-statement">MirandaLab es una plataforma de vanguardia diseñada para transformar la preparación de los docentes ecuatorianos, completamente desplegada, orquestada y asegurada end-to-end como proyecto integrador final del curso de DevOps.</p>
+        <div class="meta-info">
+            <strong>Author</strong> <span>Miguel Macias</span>
+            <strong>Date</strong> <span>April 30, 2026</span>
+            <strong>Repository</strong> <a href="https://github.com/MigeruDev/aulamiranda" target="_blank">https://github.com/MigeruDev/aulamiranda</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Section 1: Repositorio y Workflows Activos</h2>
+        
+        <div class="question-block">
+            <p class="question">¿Qué evento dispara cada workflow? (push a main, tag, push + PR)</p>
+            <p class="answer">El CI/CD pipeline consta de tres workflows core ejecutados mediante GitHub Actions:</p>
+            <p class="answer"><strong>Deploy a GitHub Pages:</strong> Se desencadena mediante un push directo a la rama <code>main</code>. Este pipeline realiza el build de producción de la aplicación Angular y expone los artifacts estáticos usando el entorno moderno de Pages.</p>
+            <p class="answer"><strong>Docker GHCR:</strong> Se acciona al generar un tag de release en Git (ej. <code>v1.0.0</code>). Construye una imagen Docker optimizada y ejecuta un push seguro hacia el GitHub Container Registry.</p>
+            <p class="answer"><strong>CodeQL:</strong> Nuestro componente de code scanning. Está configurado para reaccionar ante cada push a <code>main</code>, en creación de pull requests, y de forma programada vía cron, ejecutando un análisis de seguridad estático (SAST) sobre el código fuente.</p>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot: Actions tab mostrando los workflows exitosos ]</span>
+            <code>src="./proyecto_final_screenshots/1_workflows_actions.png"</code>
+        </div>
+    </section>
+
+    <section>
+        <h2>Section 2: Live Site en GitHub Pages</h2>
+        
+        <div class="question-block">
+            <p class="question">¿Qué workflow publica el sitio automáticamente?</p>
+            <p class="answer">La orquestación del deployment automático es manejada íntegramente por el workflow <code>deploy.yml</code>.</p>
+            
+            <p class="question">¿Qué carpeta/archivos se despliegan?</p>
+            <p class="answer">Este action empaqueta y transfiere el contenido del directorio <code>dist/aulamiranda/browser/</code>. Dicha carpeta alberga todos los compilados minificados (HTML, CSS, JS) generados por el framework Angular, los cuales se despliegan directamente de manera serverless en el entorno de GitHub Pages.</p>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot: Aplicación renderizada en la URL pública ]</span>
+            <code>src="./proyecto_final_screenshots/2_github_pages.png"</code>
+        </div>
+    </section>
+
+    <section>
+        <h2>Section 3: Docker Image en GHCR</h2>
+        
+        <div class="question-block">
+            <p class="question">¿Qué evento dispara la publicación de la imagen?</p>
+            <p class="answer">El release pipeline hacia GHCR se dispara automáticamente al crear y subir un tag de Git al repositorio que cumpla con un patrón de versionado semántico (ejemplo: <code>v1.0.0</code>).</p>
+            
+            <p class="question">¿Por qué se generan tres etiquetas a partir de un solo tag?</p>
+            <p class="answer">Utilizamos action metadata para implementar un schema robusto de semantic versioning de manera dinámica. Esto asegura que el tag <code>latest</code> sea siempre un pointer a la iteración estable más reciente, a la par que se generan etiquetas granulares (ej. <code>1.0</code> y <code>1.0.0</code>) para preservar snapshots inmutables, garantizando fallbacks seguros en el ecosistema de producción.</p>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot: Panel del GHCR mostrando la imagen y los tags generados ]</span>
+            <code>src="./proyecto_final_screenshots/3_ghcr_image.png"</code>
+        </div>
+    </section>
+
+    <section>
+        <h2>Section 4: Local Docker Compose Stack</h2>
+        
+        <div class="question-block">
+            <p class="question">¿Por qué el servicio web en el Docker Compose no mapea todos los puertos internos y qué función cumple?</p>
+            <p class="answer">En el entorno local, el <code>docker-compose.yml</code> orquesta la aplicación exponiendo únicamente el puerto estrictamente necesario (el puerto interno 80 de Nginx hacia el 8080 del host), aislando el contenedor del host para evitar conflictos de puertos y limitar la superficie de ataque local.</p>
+            
+            <p class="question">¿Cómo sabe nginx qué servir y hacia dónde enrutar?</p>
+            <p class="answer">El contenedor ejecuta Nginx actuando como web server. Posee una configuración <code>nginx.conf</code> que indica explícitamente servir los artifacts estáticos en <code>/usr/share/nginx/html</code>, e incorpora una regla de fallback routing (<code>try_files $uri $uri/ /index.html;</code>) que intercepta todas las rutas no encontradas y las redirige al <code>index.html</code>, un approach indispensable para el client-side routing de nuestra Single Page Application (SPA).</p>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot 1: Output de `docker compose ps` indicando el health del contenedor ]</span>
+            <code>src="./proyecto_final_screenshots/4a_docker_ps.png"</code>
+        </div>
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot 2: Vista de localhost:8080 renderizando la SPA ]</span>
+            <code>src="./proyecto_final_screenshots/4b_localhost.png"</code>
+        </div>
+    </section>
+
+    <section>
+        <h2>Section 5: Seguridad (Dependabot & CodeQL)</h2>
+        
+        <div class="question-block">
+            <p class="question">¿Qué diferencia hay entre lo que detecta Dependabot y lo que detecta CodeQL?</p>
+            <p class="answer"><strong>Dependabot</strong> proporciona Software Composition Analysis (SCA), inspeccionando constantemente el dependency tree del <code>package.json</code> para aislar librerías de terceros (ej. <code>lodash</code>) afectadas por vulnerabilidades CVE conocidas. Por otro lado, <strong>CodeQL</strong> provee Static Application Security Testing (SAST), analizando el control flow de nuestro código fuente propio para identificar fallos de arquitectura como posibles inyecciones de código.</p>
+            
+            <p class="question">¿Cómo corregirías la vulnerabilidad del eval() que CodeQL detectó?</p>
+            <p class="answer">Para mitigar la alerta del <code>eval()</code> generada por CodeQL, la ejecución dinámica de user input debe ser completamente removida. El refactor debe implementar un parser aritmético especializado o procesar los datos dentro de un contexto estrictamente tipado que no ejecute code payloads arbitrarios en runtime, cerrando así el vector de code injection.</p>
+        </div>
+        
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot 1: Panel de alertas de Dependabot detectando paquetes vulnerables ]</span>
+            <code>src="./proyecto_final_screenshots/5a_dependabot.png"</code>
+        </div>
+        <div class="screenshot-placeholder">
+            <span>[ Screenshot 2: Panel de Code Scanning alertando sobre code injection ]</span>
+            <code>src="./proyecto_final_screenshots/5b_codeql.png"</code>
+        </div>
+    </section>
+
+</body>
+</html>
