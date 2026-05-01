@@ -15,7 +15,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           <div class="flex items-center gap-3 mb-8 cursor-pointer" routerLink="/">
             <div class="bg-primary-container text-on-primary w-10 h-10 rounded-xl flex items-center justify-center font-bold font-h3 shadow-sm">P</div>
             <div>
-              <h2 class="font-h3 text-[16px] leading-tight font-extrabold tracking-tight text-on-surface">PrepDocente<span class="text-primary-container">EC</span></h2>
+              <h2 class="font-h3 text-[16px] leading-tight font-extrabold tracking-tight text-on-surface">Miranda<span class="text-primary-container">Lab</span></h2>
               <span class="font-label-caps text-[10px] text-on-surface-variant">Plataforma Eval</span>
             </div>
           </div>

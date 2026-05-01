@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
             <div class="bg-primary text-on-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold font-h3 shadow-sm">
               P
             </div>
-            <div class="text-xl font-h3 font-extrabold text-on-surface tracking-tight">PrepDocente<span class="text-primary">EC</span></div>
+            <div class="text-xl font-h3 font-extrabold text-on-surface tracking-tight">Miranda<span class="text-primary">Lab</span></div>
           </div>
           <div class="hidden md:flex gap-8 items-center bg-surface-container-low/80 px-6 py-2.5 rounded-full border border-outline-variant/30 shadow-sm">
             <a class="font-h3 text-sm font-semibold tracking-tight text-on-surface-variant hover:text-primary transition-all" href="#especialidades">Especialidades</a>
@@ -111,7 +111,7 @@ import { RouterLink } from '@angular/router';
         <section class="py-24 w-full bg-surface">
           <div class="max-w-[1200px] mx-auto px-6">
             <div class="text-center mb-16">
-              <h2 class="font-h2 text-[32px] text-on-surface mb-4">Por qué elegir PrepDocente</h2>
+              <h2 class="font-h2 text-[32px] text-on-surface mb-4">Por qué elegir MirandaLab</h2>
               <p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Nuestra metodología está diseñada específicamente para las rúbricas de evaluación del Mineduc 2026.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -329,9 +329,9 @@ import { RouterLink } from '@angular/router';
           <div class="max-w-sm">
             <div class="flex items-center gap-2 mb-6">
               <div class="bg-primary-container text-on-primary w-8 h-8 rounded-lg flex items-center justify-center font-bold font-h3">P</div>
-              <div class="text-xl font-h3 font-bold text-white tracking-tight">PrepDocenteEC</div>
+              <div class="text-xl font-h3 font-bold text-white tracking-tight">MirandaLab</div>
             </div>
-            <p class="font-body-md text-sm text-outline-variant mb-2">© 2026 PrepDocente EC - Plataforma de Capacitación Profesional Docente.</p>
+            <p class="font-body-md text-sm text-outline-variant mb-2">© 2026 MirandaLab - Plataforma de Capacitación Profesional Docente.</p>
             <p class="font-body-md text-[11px] text-outline opacity-70">Disclaimer: Este sitio no es gubernamental ni tiene vinculación oficial con el Ministerio de Educación o INEVAL.</p>
           </div>
           <div class="grid grid-cols-2 gap-8 md:gap-16">
