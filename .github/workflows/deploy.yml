@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist/aulamiranda/browser'
+          path: './dist/app/browser'
 
   deploy:
     environment:
