@@ -16,7 +16,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built Angular artifacts from the build stage
-COPY --from=build /app/dist/aulamiranda/browser /usr/share/nginx/html
+COPY --from=build /app/dist/app/browser /usr/share/nginx/html
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
