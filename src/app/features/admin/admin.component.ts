@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     <div class="bg-background text-on-surface font-body-md text-body-md flex h-screen overflow-hidden antialiased">
       <aside class="w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col flex-shrink-0 z-10">
         <div class="h-16 flex items-center px-6 border-b border-outline-variant">
-          <span class="font-h3 text-h3 text-primary-container tracking-tight">PrepDocente EC</span>
+          <span class="font-h3 text-h3 text-primary-container tracking-tight">MirandaLab</span>
         </div>
         <div class="px-6 py-3">
           <span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Admin</span>
